@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvaW5kZXguanMuanMiLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9qc3Byb2plY3RfZGlub3R5cGVyLW1haW4vLi9zcmMvaW5kZXguanM/YjYzNSJdLCJzb3VyY2VzQ29udGVudCI6WyIiXSwibWFwcGluZ3MiOiIifQ==\n//# sourceURL=webpack-internal:///./src/index.js\n");
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: Multiple configuration files found. Please remove one:\n - babel.config.js\n - /Users/matthewteh/Documents/Bootcamp/jsProject_dinoTyper-main/babel.config.json\nfrom /Users/matthewteh/Documents/Bootcamp/jsProject_dinoTyper-main\n    at /Users/matthewteh/Documents/Bootcamp/jsProject_dinoTyper-main/node_modules/@babel/core/lib/config/files/configuration.js:149:13\n    at Array.reduce (<anonymous>)\n    at loadOneConfig (/Users/matthewteh/Documents/Bootcamp/jsProject_dinoTyper-main/node_modules/@babel/core/lib/config/files/configuration.js:147:26)\n    at loadOneConfig.next (<anonymous>)\n    at buildRootChain (/Users/matthewteh/Documents/Bootcamp/jsProject_dinoTyper-main/node_modules/@babel/core/lib/config/config-chain.js:82:51)\n    at buildRootChain.next (<anonymous>)\n    at loadPrivatePartialConfig (/Users/matthewteh/Documents/Bootcamp/jsProject_dinoTyper-main/node_modules/@babel/core/lib/config/partial.js:103:62)\n    at loadPrivatePartialConfig.next (<anonymous>)\n    at /Users/matthewteh/Documents/Bootcamp/jsProject_dinoTyper-main/node_modules/@babel/core/lib/config/partial.js:149:25\n    at Generator.next (<anonymous>)");
 
 /***/ }),
 
@@ -51,7 +51,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
+/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
 /******/ 	__webpack_modules__["./src/index.js"](0, {}, __webpack_require__);
 /******/ 	var __webpack_exports__ = {};
 /******/ 	__webpack_modules__["./src/index.scss"](0, __webpack_exports__, __webpack_require__);
