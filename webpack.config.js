@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   entry: [
-    path.resolve('jsProject_dinoTyper', 'src', 'index.js'),
+    path.resolve(__dirname, 'src', 'index.js'),
     path.resolve(__dirname, 'src', 'index.scss')
   ],
   output: {
