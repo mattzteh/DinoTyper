@@ -2,3 +2,61 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #534c2f;
+}
+
+
+
+body, .user-type {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  font-weight: bold;
+ 
+}
+
+.container {
+  background-color: #8c4424;
+  padding: 1rem;
+  border-radius: .5rem;
+  width: 700px;
+  max-width: 90%;
+}
+
+.dino {
+  position: absolute;
+  top: 1rem;
+  font-family: 'Jurassic Park', sans-serif;
+  font-size: 10rem;
+  color: white;
+}
+
+.typing-test {
+  margin-bottom: 1rem;
+}
+
+.user-type {
+  background-color: transparent;
+  border: 1px solid black;
+  outline: none;
+  width: 100%;
+  height: 5rem;
+  margin: auto;
+  resize: none;
+  padding: .25rem;
+  border-radius: .5rem;
+}
+
+.user-type:focus {
+  border-color: black;
+}
