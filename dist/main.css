@@ -36,7 +36,7 @@ body, .user-type {
 .dino {
   position: absolute;
   top: 1rem;
-  font-family: 'Jurassic Park', sans-serif;
+  font-family: 'Dinosaur', sans-serif;
   font-size: 10rem;
   color: white;
 }
@@ -59,4 +59,12 @@ body, .user-type {
 
 .user-type:focus {
   border-color: black;
+}
+
+.incorrect {
+  color: darkred;
+}
+
+.correct {
+  color: green;
 }
