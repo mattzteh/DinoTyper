@@ -1,5 +1,6 @@
-import {fetchQuote, displayNextQuote} from './scripts/quotes.js'
+import {newTest} from './scripts/typing.js'
+
 document.addEventListener("DOMContentLoaded", () => {
-    displayNextQuote();
+    newTest();
 })
 

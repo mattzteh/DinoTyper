@@ -2,69 +2,119 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('http://fonts.cdnfonts.com/css/the-dinosaur');
 
-* {
-  box-sizing: border-box;
-}
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  background-color: #8b796d;
   overflow: hidden;
-  background-color: #534c2f;
 }
 
-
-
-body, .user-type {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: white;
-  font-weight: bold;
- 
+main {
+  width: 900px;
+  margin: 50px auto;
 }
 
-.container {
-  background-color: #8c4424;
-  padding: 1rem;
-  border-radius: .5rem;
-  width: 700px;
-  max-width: 90%;
+h1 {
+  font-family: 'The Dinosaur', 'sans-serif';
 }
 
-.dino {
-  position: absolute;
-  top: 1rem;
-  font-family: 'Dinosaur', sans-serif;
-  font-size: 10rem;
-  color: white;
+h1 svg {
+  width: 40px;
 }
 
-.typing-test {
-  margin-bottom: 1rem;
+#header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 25px 6px 30px;
 }
 
-.user-type {
-  background-color: transparent;
-  border: 1px solid black;
+#buttons {
+  text-align: right;
+}
+
+#info {
+  font-family: 'The Dinosaur', 'sans-serif';
+}
+
+button {
+  font-family: 'The Dinosaur', 'sans-serif';
+  border: 0;
+  padding: 5px 20px;
+  background-color: #8b796d;
+  cursor: pointer;
+}
+
+#game {
+  font-family: 'Roboto Mono', 'monospace';
+}
+
+div#game {
+  line-height: 35px;
+  height: 105px;
+  overflow: hidden;
+  position: relative;
   outline: none;
-  width: 100%;
-  height: 5rem;
-  margin: auto;
-  resize: none;
-  padding: .25rem;
-  border-radius: .5rem;
 }
 
-.user-type:focus {
-  border-color: black;
+#game:focus #words {
+  filter: blur(0);
 }
 
-.incorrect {
-  color: darkred;
+#game:focus #focus-error {
+  display: none;
 }
 
-.correct {
-  color: green;
+#words {
+  filter: blur(5px);
+  color: rgb(85, 85, 85);
+}
+
+#focus-error {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  padding: 35px;
+}
+
+div.word {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.letter.correct {
+  color: white;
+}
+
+.letter.incorrect {
+  color: maroon;
+  text-decoration: underline;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#cursor {
+  display: none;
+  width: 2px;
+  height: 1.3rem;
+  background: black;
+  position: fixed;
+  top: 183px;
+  left: 273px;
+  animation: blink .9s infinite;
+}
+
+#game:focus #cursor {
+  display: block;
 }
