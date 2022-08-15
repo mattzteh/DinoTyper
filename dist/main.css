@@ -30,20 +30,37 @@ h1 svg {
   margin: 25px 6px 30px;
 }
 
-#buttons {
+/* #buttons {
   text-align: right;
-}
+} */
 
 #info {
   font-family: 'The Dinosaur', 'sans-serif';
 }
 
-button {
-  font-family: 'The Dinosaur', 'sans-serif';
+button svg {
+  width: 20px;
+  fill: rgb(85, 85, 85);
+}
+
+.reset-button {
+
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto Mono', 'sans-serif';
   border: 0;
-  padding: 5px 20px;
-  background-color: #8b796d;
+  padding: 50px 20px;
   cursor: pointer;
+}
+
+button {
+  background-color: #8b796d;
+  border: none;
+  outline: none;
+}
+
+button svg:hover {
+  fill: white;
 }
 
 #game {
@@ -89,7 +106,7 @@ div.word {
 
 .letter.incorrect {
   color: maroon;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 @keyframes blink {
@@ -110,9 +127,9 @@ div.word {
   height: 1.3rem;
   background: black;
   position: fixed;
-  top: 183px;
+  top: 175px;
   left: 273px;
-  animation: blink .9s infinite;
+  animation: blink 1s infinite;
 }
 
 #game:focus #cursor {

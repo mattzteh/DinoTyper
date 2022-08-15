@@ -1,4 +1,4 @@
-const words = 'public long number word about after much need open change also in one good real one not school set they state against'.split(' ')
+const words = 'public business need long number word about after much need open change also in one good real one not school set they state against person system interest general point'.split(' ')
 const wordsCount = words.length;
 const wordsDiv = document.getElementById('words');
 const game = document.getElementById('game');
@@ -6,7 +6,6 @@ const game = document.getElementById('game');
 
 function addClass(ele, name) {
     ele.className += ' '+name;
-
 }
 
 function removeClass(ele, name) {
@@ -24,7 +23,7 @@ function formatWord(word) {
 
 function newTest() {
     wordsDiv.innerHTML = '';
-    for (let i = 0; i < 50; i ++){
+    for (let i = 0; i < 100; i ++){
         wordsDiv.innerHTML += formatWord(randWord());
     }
     addClass(document.querySelector('.word'), 'current');
@@ -59,6 +58,7 @@ game.addEventListener('keyup', event => {
         }
         removeClass(currentWord, 'current');
         addClass(currentWord.nextSibling, 'current');
+
         if (currentLetter) {
             removeClass(currentLetter, 'current');
         }
@@ -88,18 +88,27 @@ game.addEventListener('keyup', event => {
         }
     }
 
+    if (currentWord.getBoundingClientRect().top > 220) {
+        const margin = parseInt(wordsDiv.style.marginTop || '0px');
+        wordsDiv.style.marginTop = (margin - 35) + 'px';
+    }
+
     const nextLetter = document.querySelector('.letter.current')
     const nextWord = document.querySelector('.word.current');
     const cursor = document.getElementById('cursor');
+
     if (nextLetter) {
         cursor.style.top = nextLetter.getBoundingClientRect().top + 'px';
         cursor.style.left = nextLetter.getBoundingClientRect().left + 'px';
     } else {
-        cursor.style.top = nextWord.getBoundingClientRect().top + 'px';
-        cursor.style.left    = nextWord.getBoundingClientRect().right + 'px';
+        cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
-
 })
+
+
+const resetTest = document.getElementById('reset')
+
+resetTest.addEventListener('click', newTest)
 
 
 export {newTest};
