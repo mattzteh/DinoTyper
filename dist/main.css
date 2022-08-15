@@ -1,11 +1,14 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-@import url('http://fonts.cdnfonts.com/css/the-dinosaur');
-
-
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
+  \*****************************************************************************************************************************************/
+@import url(http://fonts.cdnfonts.com/css/the-dinosaur);
+/*!*****************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
+  \*****************************************************************************************************************************************/
 body {
   background-color: #8b796d;
   overflow: hidden;
@@ -17,7 +20,7 @@ main {
 }
 
 h1 {
-  font-family: 'The Dinosaur', 'sans-serif';
+  font-family: "The Dinosaur", "sans-serif";
 }
 
 h1 svg {
@@ -33,9 +36,8 @@ h1 svg {
 /* #buttons {
   text-align: right;
 } */
-
 #info {
-  font-family: 'The Dinosaur', 'sans-serif';
+  font-family: "The Dinosaur", "sans-serif";
 }
 
 button svg {
@@ -44,13 +46,11 @@ button svg {
 }
 
 .reset-button {
-
   display: flex;
   justify-content: center;
-  font-family: 'Roboto Mono', 'sans-serif';
+  font-family: "Roboto Mono", "sans-serif";
   border: 0;
   padding: 50px 20px;
-  cursor: pointer;
 }
 
 button {
@@ -64,7 +64,7 @@ button svg:hover {
 }
 
 #game {
-  font-family: 'Roboto Mono', 'monospace';
+  font-family: "Roboto Mono", "monospace";
 }
 
 div#game {
@@ -95,13 +95,17 @@ div#game {
   padding: 35px;
 }
 
+#focus-error svg {
+  width: 10px;
+}
+
 div.word {
   display: inline-block;
   margin: 0 5px;
 }
 
 .letter.correct {
-  color: white;
+  color: #f8f0e3;
 }
 
 .letter.incorrect {
@@ -120,7 +124,6 @@ div.word {
     opacity: 1;
   }
 }
-
 #cursor {
   display: none;
   width: 2px;

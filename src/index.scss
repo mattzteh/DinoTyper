@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('http://fonts.cdnfonts.com/css/the-dinosaur');
+
+
+body {
+    background-color: #8b796d;
+    overflow: hidden;
+}
+
+main {
+    width: 900px;
+    margin: 50px auto;
+}
+
+h1 {
+    font-family: 'The Dinosaur', 'sans-serif';
+}
+
+h1 svg {
+    width: 40px;
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 25px 6px 30px;
+}
+
+/* #buttons {
+  text-align: right;
+} */
+
+#info {
+    font-family: 'The Dinosaur', 'sans-serif';
+}
+
+button svg {
+    width: 20px;
+    fill: rgb(85, 85, 85);
+}
+
+.reset-button {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto Mono', 'sans-serif';
+    border: 0;
+    padding: 50px 20px;
+}
+
+button {
+    background-color: #8b796d;
+    border: none;
+    outline: none;
+}
+
+button svg:hover {
+    fill: white;
+}
+
+#game {
+    font-family: 'Roboto Mono', 'monospace';
+}
+
+div#game {
+    line-height: 35px;
+    height: 105px;
+    overflow: hidden;
+    position: relative;
+    outline: none;
+}
+
+#game:focus #words {
+    filter: blur(0);
+}
+
+#game:focus #focus-error {
+    display: none;
+}
+
+#words {
+    filter: blur(5px);
+    color: rgb(85, 85, 85);
+}
+
+#focus-error {
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    padding: 35px;
+}
+
+#focus-error svg {
+    width: 10px;
+}
+
+div.word {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.letter.correct {
+    color: #f8f0e3;
+}
+
+.letter.incorrect {
+    color: maroon;
+    /* text-decoration: underline; */
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#cursor {
+    display: none;
+    width: 2px;
+    height: 1.3rem;
+    background: black;
+    position: fixed;
+    top: 175px;
+    left: 273px;
+    animation: blink 1s infinite;
+}
+
+#game:focus #cursor {
+    display: block;
+}

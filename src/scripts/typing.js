@@ -2,6 +2,8 @@ const words = 'public business need long number word about after much need open 
 const wordsCount = words.length;
 const wordsDiv = document.getElementById('words');
 const game = document.getElementById('game');
+const timer = 30 * 1000;
+window.gameStart = null;
 
 
 function addClass(ele, name) {
@@ -23,11 +25,12 @@ function formatWord(word) {
 
 function newTest() {
     wordsDiv.innerHTML = '';
-    for (let i = 0; i < 100; i ++){
+    for (let i = 0; i < 200; i ++){
         wordsDiv.innerHTML += formatWord(randWord());
     }
     addClass(document.querySelector('.word'), 'current');
     addClass(document.querySelector('.letter'), 'current');
+    window.timer = null;
 }
 
 game.addEventListener('keyup', event => {
@@ -39,6 +42,20 @@ game.addEventListener('keyup', event => {
     const spacebar = key === ' ';
     const backspace = key === 'Backspace';
     const isFirstletter = currentLetter === currentWord.firstChild;
+
+    if (!window.timer && isLetter) {
+        window.timer = setInterval(() => {
+            if (!window.gameStart) {
+                window.gameStart = (new Date()).getTime();
+            }
+            const currentTime = (new Date()).getTime();
+            const msPassed = currentTime - window.gameStart;
+            const sPassed = Math.round(msPassed / 1000);
+            const timeLeft = (timer / 1000) - sPassed;
+            document.getElementById('info').innerHTML = timeLeft + '';
+        },1000)
+
+    }
 
     if (isLetter) {
         if (currentLetter) {
@@ -103,12 +120,24 @@ game.addEventListener('keyup', event => {
     } else {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
+
 })
 
 
-const resetTest = document.getElementById('reset')
+const resetTest = document.getElementById('reset');
+const cursor = document.getElementById('cursor');
 
-resetTest.addEventListener('click', newTest)
+
+resetTest.addEventListener('click', () => {
+    newTest();
+    cursor.style.top = '175px';
+    cursor.style.left = '273px';
+    window.gamestart = null;
+});
+    
+
+
+// resetTest.addEventListener('reset', )
 
 
 export {newTest};
