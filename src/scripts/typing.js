@@ -14,7 +14,6 @@ export function newTest() {
     while (wordsDiv.lastChild) {
         wordsDiv.removeChild(wordsDiv.lastChild);
     }
-
     for (let i = 0; i < 200; i++){
         wordsDiv.innerHTML += formatWord(randWord());
     }
@@ -125,10 +124,9 @@ game.addEventListener('keyup', event => {
         }
     }
 
-    if (currentWord.getBoundingClientRect().top > 220) {
+    if (currentWord.getBoundingClientRect().top > 270) {
         const margin = parseInt(wordsDiv.style.marginTop || '0px');
         wordsDiv.style.marginTop = (margin - 35) + 'px';
-
     }
 
     const nextLetter = document.querySelector('.letter.current')
@@ -147,7 +145,7 @@ game.addEventListener('keyup', event => {
 resetTest.addEventListener('click', () => {
     gameOver();
     newTest();
-    cursor.style.top = '177px';
+    cursor.style.top = '215px';
     cursor.style.left = '273px';
     clock.innerText = 30;
 });

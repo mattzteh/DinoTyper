@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('http://fonts.cdnfonts.com/css/the-dinosaur');
-
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Roboto+Mono&display=swap');
 
 body {
     background-color: #8b796d;
@@ -12,12 +12,29 @@ main {
     margin: 50px auto;
 }
 
-h1 {
-    font-family: 'The Dinosaur', 'sans-serif';
+#links {
+    display: flex;
+    justify-content:space-between;
 }
 
-h1 svg {
+h1 {
+    font-family: 'DynaPuff', 'cursive'; 
+}
+
+h1 img {
     width: 40px;
+}
+
+#wrapper {
+    display: flex;
+    align-items: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div #icon {
+    width: 20px;
+    padding: 5px;
 }
 
 #header {
@@ -25,10 +42,6 @@ h1 svg {
     grid-template-columns: 1fr 1fr;
     margin: 25px 6px 30px;
 }
-
-/* #buttons {
-  text-align: right;
-} */
 
 #info {
     font-family: 'The Dinosaur', 'sans-serif';
@@ -53,12 +66,13 @@ button {
     outline: none;
 }
 
-button svg:hover {
+button svg:hover, button svg:focus{
     fill: white;
 }
 
 #game {
     font-family: 'Roboto Mono', 'monospace';
+    font-size: 20px;
 }
 
 div#game {
@@ -87,6 +101,7 @@ div#game {
     inset: 0;
     text-align: center;
     padding: 35px;
+    font-size: 16px;
 }
 
 #focus-error svg {
@@ -104,7 +119,6 @@ div.word {
 
 .letter.incorrect {
     color: maroon;
-    /* text-decoration: underline; */
 }
 
 @keyframes blink {
@@ -124,11 +138,12 @@ div.word {
 #cursor {
     display: none;
     width: 2px;
-    height: 1.3rem;
+    height: 1.6rem;
     background: black;
     position: fixed;
-    top: 175px;
+    top: 215px;
     left: 273px;
+    transition: all 65ms linear;
     animation: blink 1s infinite;
 }
 
