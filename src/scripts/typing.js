@@ -1,10 +1,11 @@
+
 const words = 'public business need long number word about after much need open change also in one good real one not school set they state against person system interest general point'.split(' ')
 const wordsCount = words.length;
 const wordsDiv = document.getElementById('words');
 const game = document.getElementById('game');
 const timer = 30 * 1000;
+window.timer = null;
 window.gameStart = null;
-
 
 function addClass(ele, name) {
     ele.className += ' '+name;
@@ -24,13 +25,21 @@ function formatWord(word) {
 }
 
 function newTest() {
+    removeClass(document.getElementById('game'), 'over');
     wordsDiv.innerHTML = '';
     for (let i = 0; i < 200; i ++){
         wordsDiv.innerHTML += formatWord(randWord());
     }
     addClass(document.querySelector('.word'), 'current');
     addClass(document.querySelector('.letter'), 'current');
+    window.gameStart = null;
     window.timer = null;
+
+}
+
+function gameOver(){
+    clearInterval(window.timer);
+    addClass(document.getElementById('game'), 'over');
 }
 
 game.addEventListener('keyup', event => {
@@ -43,6 +52,10 @@ game.addEventListener('keyup', event => {
     const backspace = key === 'Backspace';
     const isFirstletter = currentLetter === currentWord.firstChild;
 
+    if (document.querySelector('#game.over')) {
+        return;
+    }
+
     if (!window.timer && isLetter) {
         window.timer = setInterval(() => {
             if (!window.gameStart) {
@@ -52,9 +65,11 @@ game.addEventListener('keyup', event => {
             const msPassed = currentTime - window.gameStart;
             const sPassed = Math.round(msPassed / 1000);
             const timeLeft = (timer / 1000) - sPassed;
+            if (timeLeft <= 0) {
+                gameOver();
+            }
             document.getElementById('info').innerHTML = timeLeft + '';
         },1000)
-
     }
 
     if (isLetter) {
@@ -66,6 +81,7 @@ game.addEventListener('keyup', event => {
             }
         }
     }
+
     if (spacebar) {
         if (expected !== ' ') {
             const invalidatedLetters = [...document.querySelectorAll('.word.current .letter:not(.correct)')];
@@ -73,6 +89,7 @@ game.addEventListener('keyup', event => {
                 addClass(letter, 'incorrect');
             })
         }
+
         removeClass(currentWord, 'current');
         addClass(currentWord.nextSibling, 'current');
 
@@ -126,19 +143,15 @@ game.addEventListener('keyup', event => {
 
 const resetTest = document.getElementById('reset');
 const cursor = document.getElementById('cursor');
-
+const clock = document.getElementById('info');
 
 resetTest.addEventListener('click', () => {
+    gameOver();
     newTest();
-    cursor.style.top = '175px';
+    cursor.style.top = '177px';
     cursor.style.left = '273px';
-    window.gamestart = null;
+    clock.innerText = 30;
 });
-    
-
-
-// resetTest.addEventListener('reset', )
-
 
 export {newTest};
 
