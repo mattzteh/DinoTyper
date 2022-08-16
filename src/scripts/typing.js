@@ -1,33 +1,21 @@
+import {wordsDiv, game, timer, resetTest, cursor, clock} from './constants.js';
+import {addClass, removeClass, formatWord, randWord} from './util.js';
 
-const words = 'public business need long number word about after much need open change also in one good real one not school set they state against person system interest general point'.split(' ')
-const wordsCount = words.length;
-const wordsDiv = document.getElementById('words');
-const game = document.getElementById('game');
-const timer = 30 * 1000;
 window.timer = null;
 window.gameStart = null;
 
-function addClass(ele, name) {
-    ele.className += ' '+name;
-}
+export function newTest() {
+    wordsDiv.style.marginTop = '0px';
 
-function removeClass(ele, name) {
-    ele.className = ele.className.replace(name, '');
-}
+    if (document.querySelector('#game.over')){
+        removeClass(game, 'over');
+    }
+    removeClass(game, 'over');
+    while (wordsDiv.lastChild) {
+        wordsDiv.removeChild(wordsDiv.lastChild);
+    }
 
-function randWord() {
-    const randIdx = Math.floor(Math.random() * wordsCount);
-    return words[randIdx];
-}
-
-function formatWord(word) {
-    return `<div class="word"><span class="letter">${word.split('').join('</span><span class="letter">')}</span></div>`;
-}
-
-function newTest() {
-    removeClass(document.getElementById('game'), 'over');
-    wordsDiv.innerHTML = '';
-    for (let i = 0; i < 200; i ++){
+    for (let i = 0; i < 200; i++){
         wordsDiv.innerHTML += formatWord(randWord());
     }
     addClass(document.querySelector('.word'), 'current');
@@ -39,7 +27,21 @@ function newTest() {
 
 function gameOver(){
     clearInterval(window.timer);
-    addClass(document.getElementById('game'), 'over');
+    addClass(game, 'over');
+    document.getElementById('info').innerHTML = `WPM: ${displayWpm()}`;
+}
+
+function displayWpm(){
+    const words = [...document.querySelectorAll('.word')];
+    const lastWord = document.querySelector('.word.current');
+    const wordsTyped = words.slice(0, words.indexOf(lastWord));
+    const correctWords = wordsTyped.filter((word) => {
+        const letters = [...word.children];
+        const incorrect = letters.filter(letter => letter.className.includes('incorrect'));
+        const correct = letters.filter(letter => letter.className.includes('correct'));
+        return incorrect.length === 0 && correct.length === letters.length;
+    })
+    return (correctWords.length / timer) * 60000;
 }
 
 game.addEventListener('keyup', event => {
@@ -67,6 +69,7 @@ game.addEventListener('keyup', event => {
             const timeLeft = (timer / 1000) - sPassed;
             if (timeLeft <= 0) {
                 gameOver();
+                return;
             }
             document.getElementById('info').innerHTML = timeLeft + '';
         },1000)
@@ -125,6 +128,7 @@ game.addEventListener('keyup', event => {
     if (currentWord.getBoundingClientRect().top > 220) {
         const margin = parseInt(wordsDiv.style.marginTop || '0px');
         wordsDiv.style.marginTop = (margin - 35) + 'px';
+
     }
 
     const nextLetter = document.querySelector('.letter.current')
@@ -140,11 +144,6 @@ game.addEventListener('keyup', event => {
 
 })
 
-
-const resetTest = document.getElementById('reset');
-const cursor = document.getElementById('cursor');
-const clock = document.getElementById('info');
-
 resetTest.addEventListener('click', () => {
     gameOver();
     newTest();
@@ -152,9 +151,6 @@ resetTest.addEventListener('click', () => {
     cursor.style.left = '273px';
     clock.innerText = 30;
 });
-
-export {newTest};
-
 
 
 
