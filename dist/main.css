@@ -13,12 +13,35 @@
 /*!***************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/dino.css ***!
   \***************************************************************************************************/
+
 #screen {
-    height: 200px;
+    height: 70px;
     width: auto;
-    border: 1px solid black;
     margin-bottom: 30px;
 }
+
+hr {
+    border-color: black;
+}
+
+#screen {
+    position: relative;
+}
+
+#dino-img {
+    width: 80px;
+    position: fixed;
+}
+
+#human {
+    width: 30px;
+    position: fixed;
+}
+
+.hidden {
+    display: none;
+}
+
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
   \*****************************************************************************************************************************************/
@@ -156,11 +179,11 @@ div.word {
 #cursor {
   display: none;
   width: 2px;
-  height: 1.6rem;
+  height: 1.5rem;
   background: black;
   position: fixed;
-  top: 457px;
-  left: 273px;
+  top: 327px;
+  left: 274px;
   transition: all 65ms linear;
   animation: blink 1s infinite;
 }

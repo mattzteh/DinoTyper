@@ -1,10 +1,14 @@
-import {wordsDiv, game, timer, resetTest, cursor, clock} from './constants.js';
+import {wordsDiv, game, timer, resetTest, cursor, clock, human} from './constants.js';
+import { runningDino } from './dino.js';
 import {addClass, removeClass, formatWord, randWord} from './util.js';
 
 window.timer = null;
 window.gameStart = null;
 
 export function newTest() {
+    cursor.style.top = '327px';
+    cursor.style.left = '274px';
+    clock.innerText = 30;
     wordsDiv.style.marginTop = '0px';
 
     if (document.querySelector('#game.over')){
@@ -58,6 +62,7 @@ game.addEventListener('keyup', event => {
     }
 
     if (!window.timer && isLetter) {
+        runningDino();
         window.timer = setInterval(() => {
             if (!window.gameStart) {
                 window.gameStart = (new Date()).getTime();
@@ -124,7 +129,7 @@ game.addEventListener('keyup', event => {
         }
     }
 
-    if (currentWord.getBoundingClientRect().top > 500) {
+    if (currentWord.getBoundingClientRect().top > 360) {
         const margin = parseInt(wordsDiv.style.marginTop || '0px');
         wordsDiv.style.marginTop = (margin - 35) + 'px';
     }
@@ -133,9 +138,12 @@ game.addEventListener('keyup', event => {
     const nextWord = document.querySelector('.word.current');
     const cursor = document.getElementById('cursor');
 
+    let left = 270;
     if (nextLetter) {
         cursor.style.top = nextLetter.getBoundingClientRect().top + 'px';
         cursor.style.left = nextLetter.getBoundingClientRect().left + 'px';
+        human.style.left = left + 'px';
+        left += 5;
     } else {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
@@ -145,9 +153,6 @@ game.addEventListener('keyup', event => {
 resetTest.addEventListener('click', () => {
     gameOver();
     newTest();
-    cursor.style.top = '457px';
-    cursor.style.left = '273px';
-    clock.innerText = 30;
 });
 
 

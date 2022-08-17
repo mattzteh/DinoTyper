@@ -1,6 +1,28 @@
+
 #screen {
-    height: 200px;
+    height: 70px;
     width: auto;
-    border: 1px solid black;
     margin-bottom: 30px;
+}
+
+hr {
+    border-color: black;
+}
+
+#screen {
+    position: relative;
+}
+
+#dino-img {
+    width: 80px;
+    position: fixed;
+}
+
+#human {
+    width: 30px;
+    position: fixed;
+}
+
+.hidden {
+    display: none;
 }
