@@ -10,6 +10,15 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
   \*****************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=DynaPuff&family=Roboto+Mono&display=swap);
+/*!***************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/dino.css ***!
+  \***************************************************************************************************/
+#screen {
+    height: 200px;
+    width: auto;
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
   \*****************************************************************************************************************************************/
@@ -66,6 +75,7 @@ button svg {
 .reset-button {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   font-family: "Roboto Mono", "sans-serif";
   border: 0;
   padding: 50px 20px;
@@ -149,7 +159,7 @@ div.word {
   height: 1.6rem;
   background: black;
   position: fixed;
-  top: 215px;
+  top: 457px;
   left: 273px;
   transition: all 65ms linear;
   animation: blink 1s infinite;
@@ -161,4 +171,9 @@ div.word {
 
 #game.over #words {
   opacity: 0.2;
+}
+
+#game-container {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('http://fonts.cdnfonts.com/css/the-dinosaur');
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Roboto+Mono&display=swap');
+@import url("./styles/dino.css");
 
 body {
     background-color: #8b796d;
@@ -53,12 +54,14 @@ button svg {
 }
 
 .reset-button {
-    display: flex;
+    display:flex;
     justify-content: center;
+    align-items: flex-end;
     font-family: 'Roboto Mono', 'sans-serif';
     border: 0;
     padding: 50px 20px;
 }
+
 
 button {
     background-color: #8b796d;
@@ -125,11 +128,9 @@ div.word {
     0% {
         opacity: 1;
     }
-
     50% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -141,7 +142,7 @@ div.word {
     height: 1.6rem;
     background: black;
     position: fixed;
-    top: 215px;
+    top: 457px;
     left: 273px;
     transition: all 65ms linear;
     animation: blink 1s infinite;
@@ -153,4 +154,9 @@ div.word {
 
 #game.over #words {
     opacity: .2;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
 }

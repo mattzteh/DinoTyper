@@ -124,7 +124,7 @@ game.addEventListener('keyup', event => {
         }
     }
 
-    if (currentWord.getBoundingClientRect().top > 270) {
+    if (currentWord.getBoundingClientRect().top > 500) {
         const margin = parseInt(wordsDiv.style.marginTop || '0px');
         wordsDiv.style.marginTop = (margin - 35) + 'px';
     }
@@ -145,7 +145,7 @@ game.addEventListener('keyup', event => {
 resetTest.addEventListener('click', () => {
     gameOver();
     newTest();
-    cursor.style.top = '215px';
+    cursor.style.top = '457px';
     cursor.style.left = '273px';
     clock.innerText = 30;
 });
