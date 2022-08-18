@@ -183,7 +183,7 @@ game.addEventListener('keyup', event => {
     } else {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
-    if (isLetter) {
+    if (key == expected) {
         human.style.paddingLeft = left + 'px';
         left += 2;
     }
