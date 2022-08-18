@@ -76,7 +76,7 @@ function runTimer() {
 function runningDino() {
     if (!document.querySelector('#game.over')){
         dino.style.paddingLeft = dino_left + 'px'; 
-        dino_left += 8;
+        dino_left += 10;
     }
 }
 
@@ -86,7 +86,7 @@ function stopDino(){
 
 //------------------------------------------------------------------------------
 
-game.addEventListener('keyup', event => {
+game.addEventListener('keydown', event => {
 
     if (!document.querySelector('#game.over')) {
         message.innerText = 'Run!';
@@ -168,7 +168,7 @@ game.addEventListener('keyup', event => {
         }
     }
 
-    if (currentWord.getBoundingClientRect().top > 380) {
+    if (currentWord.getBoundingClientRect().top > 400) {
         const margin = parseInt(wordsDiv.style.marginTop || '0px');
         wordsDiv.style.marginTop = (margin - 35) + 'px';
     }
@@ -183,7 +183,7 @@ game.addEventListener('keyup', event => {
     } else {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
-    
+
     if (key == expected) {
         human.style.paddingLeft = left + 'px';
         left += 2;

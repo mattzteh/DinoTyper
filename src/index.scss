@@ -111,11 +111,9 @@ div.word {
     height: 1.5rem;
     background: black;
     position: fixed;
-    // top: 327px;
-    // left: 274px;
     display: flex;
     justify-content: flex-start;
-    transition: all 90ms linear;
+    transition: all 40ms linear;
     animation: blink 1.2s infinite;
 }
 
