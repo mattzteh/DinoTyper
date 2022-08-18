@@ -1,18 +1,6 @@
-/*!*************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
-  \*************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap);
-/*!*****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (1) ***!
-  \*****************************************************************************************************************************************/
 @import url(http://fonts.cdnfonts.com/css/the-dinosaur);
-/*!*****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (2) ***!
-  \*****************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=DynaPuff&family=Roboto+Mono&display=swap);
-/*!***************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/dino.css ***!
-  \***************************************************************************************************/
 
 #screen {
     height: 70px;
@@ -38,9 +26,6 @@ hr {
     position: fixed;
     margin-left: auto;
 }
-/*!*********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/gameheader.css ***!
-  \*********************************************************************************************************/
 
 #links {
     display: flex;
@@ -87,131 +72,6 @@ div #icon {
     font-family: 'Roboto Mono', 'monospace';
     text-align: center;
 }
-/*!*****************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
-  \*****************************************************************************************************************************************/
-body {
-  background-color: #8b796d;
-  overflow: hidden;
-}
+body{background-color:#8b796d;overflow:hidden}main{display:grid;grid-template-columns:200px 1fr 900px 1fr 200px}button svg{width:20px;fill:#464646}.reset-button{display:flex;justify-content:center;align-items:flex-end;font-family:"Roboto Mono","sans-serif";border:0;padding:50px 20px}button{background-color:#8b796d;border:none;outline:none}button svg:hover,button svg:focus{fill:#f8f0e3}#game{font-family:"Roboto Mono","monospace";font-size:20px}div#game{line-height:35px;height:105px;overflow:hidden;position:relative;outline:none}#game:focus #words{filter:blur(0)}#game:focus #focus-error{display:none}#words{filter:blur(5px);color:#464646}#focus-error{position:absolute;inset:0;text-align:center;padding:35px;font-size:16px}#focus-error svg{width:10px}div.word{display:inline-block;margin:0 5px}.letter.correct{color:#f8f0e3}.letter.incorrect{color:maroon}@keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}#cursor{display:none;width:2px;height:1.5rem;background:#000;position:fixed;display:flex;justify-content:flex-start;transition:all 90ms linear;animation:blink 1.2s infinite}#game:focus #cursor{display:block}#game.over #words{opacity:.2}#game-container{display:flex;flex-direction:column}#game.win #words{opacity:.2}
 
-main {
-  display: grid;
-  grid-template-columns: 200px 1fr 900px 1fr 200px;
-}
-
-button svg {
-  width: 20px;
-  fill: rgb(70, 70, 70);
-}
-
-.reset-button {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  font-family: "Roboto Mono", "sans-serif";
-  border: 0;
-  padding: 50px 20px;
-}
-
-button {
-  background-color: #8b796d;
-  border: none;
-  outline: none;
-}
-
-button svg:hover,
-button svg:focus {
-  fill: #f8f0e3;
-}
-
-#game {
-  font-family: "Roboto Mono", "monospace";
-  font-size: 20px;
-}
-
-div#game {
-  line-height: 35px;
-  height: 105px;
-  overflow: hidden;
-  position: relative;
-  outline: none;
-}
-
-#game:focus #words {
-  filter: blur(0);
-}
-
-#game:focus #focus-error {
-  display: none;
-}
-
-#words {
-  filter: blur(5px);
-  color: rgb(70, 70, 70);
-}
-
-#focus-error {
-  position: absolute;
-  inset: 0;
-  text-align: center;
-  padding: 35px;
-  font-size: 16px;
-}
-
-#focus-error svg {
-  width: 10px;
-}
-
-div.word {
-  display: inline-block;
-  margin: 0 5px;
-}
-
-.letter.correct {
-  color: #f8f0e3;
-}
-
-.letter.incorrect {
-  color: maroon;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-#cursor {
-  display: none;
-  width: 2px;
-  height: 1.5rem;
-  background: black;
-  position: fixed;
-  display: flex;
-  justify-content: flex-start;
-  transition: all 90ms linear;
-  animation: blink 1.2s infinite;
-}
-
-#game:focus #cursor {
-  display: block;
-}
-
-#game.over #words {
-  opacity: 0.2;
-}
-
-#game-container {
-  display: flex;
-  flex-direction: column;
-}
-
-#game.win #words {
-  opacity: 0.2;
-}
+/*# sourceMappingURL=main.css.map*/
