@@ -1,5 +1,5 @@
 import {wordsDiv, game, resetTest, cursor, clock, human, dino} from './constants.js';
-import {addClass, removeClass, formatWord, randWord} from './util.js';
+import {addClass, removeClass, formatWord, randWord, displayWpm} from './util.js';
 
 // variables--------------------------------------------------------------------
 
@@ -48,27 +48,13 @@ export function newTest() {
     addClass(document.querySelector('.letter'), 'current'); 
 }
 
+//------------------------------------------------------------------------------
+
 function gameOver() {
     clearInterval(window.timer);
     addClass(game, 'over');
     document.getElementById('info').innerHTML = `WPM: ${displayWpm()}`;
-
 }
-
-function displayWpm() {
-    const words = [...document.querySelectorAll('.word')];
-    const lastWord = document.querySelector('.word.current');
-    const wordsTyped = words.slice(0, words.indexOf(lastWord));
-    const correctWords = wordsTyped.filter((word) => {
-        const letters = [...word.children];
-        const incorrect = letters.filter(letter => letter.className.includes('incorrect'));
-        const correct = letters.filter(letter => letter.className.includes('correct'));
-        return incorrect.length === 0 && correct.length === letters.length;
-    })
-    return (correctWords.length / timer) * 240000;
-}
-
-
 
 if (gameStart === false) {
     game.addEventListener('keyup', () => {
@@ -145,10 +131,8 @@ game.addEventListener('keyup', event => {
                 addClass(letter, 'incorrect');
             })
         }
-
         removeClass(currentWord, 'current');
         addClass(currentWord.nextSibling, 'current');
-
         if (currentLetter) {
             removeClass(currentLetter, 'current');
         }
@@ -170,7 +154,6 @@ game.addEventListener('keyup', event => {
             removeClass(currentLetter.previousSibling, 'incorrect');
             removeClass(currentLetter.previousSibling, 'correct');
         }
-
         if (!currentLetter) {
             addClass(currentWord.lastChild, 'current');
             removeClass(currentWord.lastChild, 'incorrect');
