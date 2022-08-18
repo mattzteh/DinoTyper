@@ -64,7 +64,7 @@ function gameOver() {
 
 if (gameStart === false) {
     game.addEventListener('keyup', () => {
-        if(!runInterval)runTimer();
+        if(!runInterval) runTimer();
     })
 }
 
@@ -87,7 +87,12 @@ function stopDino(){
 //------------------------------------------------------------------------------
 
 game.addEventListener('keyup', event => {
+    
+    if (!document.querySelector('#game.over')) {
+        message.innerText = 'Run!';
+    }
 
+    console.log(human.style.paddingLeft);
     gameStart = true;
     const key = event.key;
     const currentWord = document.querySelector('.word.current');
@@ -97,8 +102,6 @@ game.addEventListener('keyup', event => {
     const spacebar = key === ' ';
     const backspace = key === 'Backspace';
     const isFirstletter = currentLetter === currentWord.firstChild;
-    message.innerText = 'Run!';
-
     if (document.querySelector('#game.over')) {
         return;
     }
@@ -182,7 +185,7 @@ game.addEventListener('keyup', event => {
     } else {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
-    if (key == expected) {
+    if (isLetter) {
         human.style.paddingLeft = left + 'px';
         left += 2;
     }
@@ -194,7 +197,7 @@ game.addEventListener('keyup', event => {
 
     if (human.style.paddingLeft == '900px') {
         gameOver();
-        message.innerText = 'You Win!'
+        message.innerText = 'You Win!';
     }
 })
 
