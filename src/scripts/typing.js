@@ -76,7 +76,7 @@ function runTimer() {
 function runningDino() {
     if (!document.querySelector('#game.over')){
         dino.style.paddingLeft = dino_left + 'px'; 
-        dino_left += 10;
+        dino_left += 15;
     }
 }
 
@@ -168,7 +168,7 @@ game.addEventListener('keydown', event => {
         }
     }
 
-    if (currentWord.getBoundingClientRect().top > 400) {
+    if (currentWord.getBoundingClientRect().top > 420) {
         const margin = parseInt(wordsDiv.style.marginTop || '0px');
         wordsDiv.style.marginTop = (margin - 35) + 'px';
     }
