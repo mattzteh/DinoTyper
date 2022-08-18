@@ -1,40 +1,61 @@
-import {wordsDiv, game, timer, resetTest, cursor, clock, human} from './constants.js';
-import { runningDino } from './dino.js';
+import {wordsDiv, game, resetTest, cursor, clock, human, dino} from './constants.js';
 import {addClass, removeClass, formatWord, randWord} from './util.js';
+
+// variables--------------------------------------------------------------------
+
+const timer = 120 * 1000;
+let gameStart = false;
+let runInterval;
+let dino_left = 270;
+let left = 350;
 
 window.timer = null;
 window.gameStart = null;
 
+//------------------------------------------------------------------------------
+
 export function newTest() {
+
+    gameStart = false;
+
+    clock.innerText = 120;
     cursor.style.top = '327px';
     cursor.style.left = '274px';
-    clock.innerText = 30;
     wordsDiv.style.marginTop = '0px';
+    dino.style.left = '270px';
+    human.style.left = '350px';
+    dino_left = 270;
+    left = 350;
+    window.gameStart = null;
+    window.timer = null;
+
+    stopDino();
 
     if (document.querySelector('#game.over')){
         removeClass(game, 'over');
     }
     removeClass(game, 'over');
+
     while (wordsDiv.lastChild) {
         wordsDiv.removeChild(wordsDiv.lastChild);
     }
+
     for (let i = 0; i < 200; i++){
         wordsDiv.innerHTML += formatWord(randWord());
     }
+    
     addClass(document.querySelector('.word'), 'current');
-    addClass(document.querySelector('.letter'), 'current');
-    window.gameStart = null;
-    window.timer = null;
-
+    addClass(document.querySelector('.letter'), 'current'); 
 }
 
-function gameOver(){
+function gameOver() {
     clearInterval(window.timer);
     addClass(game, 'over');
     document.getElementById('info').innerHTML = `WPM: ${displayWpm()}`;
+
 }
 
-function displayWpm(){
+function displayWpm() {
     const words = [...document.querySelectorAll('.word')];
     const lastWord = document.querySelector('.word.current');
     const wordsTyped = words.slice(0, words.indexOf(lastWord));
@@ -44,10 +65,39 @@ function displayWpm(){
         const correct = letters.filter(letter => letter.className.includes('correct'));
         return incorrect.length === 0 && correct.length === letters.length;
     })
-    return (correctWords.length / timer) * 60000;
+    return (correctWords.length / timer) * 240000;
 }
 
+
+
+if (gameStart === false) {
+    game.addEventListener('keyup', () => {
+        if(!runInterval)runTimer();
+    })
+}
+
+
+function runTimer() {
+    runningDino();
+    runInterval = setInterval(runningDino, 1000);
+}
+
+function runningDino() {
+    if (!document.querySelector('#game.over')){
+        dino.style.left = dino_left + 'px'; 
+        dino_left += 8;
+    }
+}
+
+function stopDino(){
+    clearInterval(runInterval);
+    console.log(runInterval)
+}
+
+
 game.addEventListener('keyup', event => {
+
+    gameStart = true;
     const key = event.key;
     const currentWord = document.querySelector('.word.current');
     const currentLetter = document.querySelector('.letter.current');
@@ -62,7 +112,6 @@ game.addEventListener('keyup', event => {
     }
 
     if (!window.timer && isLetter) {
-        runningDino();
         window.timer = setInterval(() => {
             if (!window.gameStart) {
                 window.gameStart = (new Date()).getTime();
@@ -138,22 +187,21 @@ game.addEventListener('keyup', event => {
     const nextWord = document.querySelector('.word.current');
     const cursor = document.getElementById('cursor');
 
-    let left = 270;
     if (nextLetter) {
         cursor.style.top = nextLetter.getBoundingClientRect().top + 'px';
         cursor.style.left = nextLetter.getBoundingClientRect().left + 'px';
-        human.style.left = left + 'px';
-        left += 5;
     } else {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
-
+    if (isLetter) {
+        human.style.left = left + 'px';
+        left += 2;
+    }
 })
 
 resetTest.addEventListener('click', () => {
+    clearInterval(runInterval);
+    runInterval = undefined;
     gameOver();
-    newTest();
+    newTest();    
 });
-
-
-

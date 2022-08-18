@@ -24,9 +24,9 @@ hr {
     border-color: black;
 }
 
-#screen {
+/* #screen {
     position: relative;
-}
+} */
 
 #dino-img {
     width: 80px;
@@ -36,6 +36,7 @@ hr {
 #human {
     width: 30px;
     position: fixed;
+    left: 350px;
 }
 
 .hidden {

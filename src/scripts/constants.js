@@ -1,6 +1,5 @@
 export const words = 'public business need long number word about after much need open change also in one good real one not school set they state against person system interest general point'.split(' ')
 export const wordsCount = words.length;
-export const timer = 5 * 1000;
 
 export const wordsDiv = document.getElementById('words');
 export const game = document.getElementById('game');
