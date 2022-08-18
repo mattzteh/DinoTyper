@@ -1,4 +1,5 @@
 import {words, wordsCount} from './constants.js';
+import {timer} from './typing.js'
 
 export function addClass(ele, name) {
     ele.className += ' '+name;
@@ -27,6 +28,6 @@ export function displayWpm() {
         const correct = letters.filter(letter => letter.className.includes('correct'));
         return incorrect.length === 0 && correct.length === letters.length;
     })
-    return (correctWords.length / timer) * 240000;
+    return (correctWords.length / timer) * 60000;
 }
 

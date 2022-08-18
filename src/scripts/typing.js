@@ -77,7 +77,6 @@ function runningDino() {
 
 function stopDino(){
     clearInterval(runInterval);
-    console.log(runInterval)
 }
 
 
@@ -176,9 +175,13 @@ game.addEventListener('keyup', event => {
     } else {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
-    if (isLetter) {
+    if (key == expected) {
         human.style.left = left + 'px';
         left += 2;
+    }
+
+    if (dino.style.left >= human.style.left) {
+        gameOver();
     }
 })
 
