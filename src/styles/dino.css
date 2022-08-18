@@ -3,6 +3,7 @@
     height: 70px;
     width: auto;
     margin-bottom: 30px;
+    display: grid;
 }
 
 hr {
@@ -10,16 +11,15 @@ hr {
 }
 
 #dino-img {
+    display: flex;
+    justify-content: flex-start;
     width: 80px;
     position: fixed;
 }
 
 #human {
+    padding-left: 80px;
     width: 30px;
     position: fixed;
-    left: 350px;
-}
-
-.hidden {
-    display: none;
+    margin-left: auto;
 }

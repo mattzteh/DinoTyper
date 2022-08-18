@@ -18,6 +18,7 @@
     height: 70px;
     width: auto;
     margin-bottom: 30px;
+    display: grid;
 }
 
 hr {
@@ -25,20 +26,67 @@ hr {
 }
 
 #dino-img {
+    display: flex;
+    justify-content: flex-start;
     width: 80px;
     position: fixed;
 }
 
 #human {
+    padding-left: 80px;
     width: 30px;
     position: fixed;
-    left: 350px;
+    margin-left: auto;
+}
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/gameheader.css ***!
+  \*********************************************************************************************************/
+
+#links {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 3;
+    margin-top: 5%;
 }
 
-.hidden {
-    display: none;
+h1 {
+    font-family: 'DynaPuff', 'cursive';
 }
 
+h1 img {
+    width: 50px;
+}
+
+#game-container {
+    grid-column: 3;
+}
+
+#wrapper {
+    display: flex;
+    align-items: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div #icon {
+    width: 20px;
+    padding: 5px;
+}
+
+#header {
+    margin: 15px 6px 35px;
+}
+
+#info {
+    display: flex;
+    align-items: flex-start;
+    font-family: 'The Dinosaur', 'sans-serif';
+}
+
+#message {
+    font-family: 'Roboto Mono', 'monospace';
+    text-align: center;
+}
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
   \*****************************************************************************************************************************************/
@@ -48,43 +96,8 @@ body {
 }
 
 main {
-  width: 900px;
-  margin: 50px auto;
-}
-
-#links {
-  display: flex;
-  justify-content: space-between;
-}
-
-h1 {
-  font-family: "DynaPuff", "cursive";
-}
-
-h1 img {
-  width: 40px;
-}
-
-#wrapper {
-  display: flex;
-  align-items: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-div #icon {
-  width: 20px;
-  padding: 5px;
-}
-
-#header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 25px 6px 30px;
-}
-
-#info {
-  font-family: "The Dinosaur", "sans-serif";
+  grid-template-columns: 200px 1fr 900px 1fr 200px;
 }
 
 button svg {
@@ -107,7 +120,8 @@ button {
   outline: none;
 }
 
-button svg:hover, button svg:focus {
+button svg:hover,
+button svg:focus {
   fill: #f8f0e3;
 }
 
@@ -179,10 +193,10 @@ div.word {
   height: 1.5rem;
   background: black;
   position: fixed;
-  top: 327px;
-  left: 274px;
-  transition: all 70ms linear;
-  animation: blink 1s infinite;
+  display: flex;
+  justify-content: flex-start;
+  transition: all 90ms linear;
+  animation: blink 1.2s infinite;
 }
 
 #game:focus #cursor {
@@ -196,4 +210,8 @@ div.word {
 #game-container {
   display: flex;
   flex-direction: column;
+}
+
+#game.win #words {
+  opacity: 0.2;
 }

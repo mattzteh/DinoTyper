@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('http://fonts.cdnfonts.com/css/the-dinosaur');
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Roboto+Mono&display=swap');
-@import url("./styles/dino.css");
+@import url('./styles/dino.css');
+@import url('./styles/gameheader.css');
 
 body {
     background-color: #8b796d;
@@ -9,43 +10,8 @@ body {
 }
 
 main {
-    width: 900px;
-    margin: 50px auto;
-}
-
-#links {
-    display: flex;
-    justify-content:space-between;
-}
-
-h1 {
-    font-family: 'DynaPuff', 'cursive'; 
-}
-
-h1 img {
-    width: 40px;
-}
-
-#wrapper {
-    display: flex;
-    align-items: column;
-    justify-content: space-around;
-    align-items: center;
-}
-
-div #icon {
-    width: 20px;
-    padding: 5px;
-}
-
-#header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 25px 6px 30px;
-}
-
-#info {
-    font-family: 'The Dinosaur', 'sans-serif';
+    grid-template-columns: 200px 1fr 900px 1fr 200px;
 }
 
 button svg {
@@ -54,7 +20,7 @@ button svg {
 }
 
 .reset-button {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: flex-end;
     font-family: 'Roboto Mono', 'sans-serif';
@@ -69,7 +35,8 @@ button {
     outline: none;
 }
 
-button svg:hover, button svg:focus{
+button svg:hover,
+button svg:focus {
     fill: #f8f0e3;
 }
 
@@ -128,9 +95,11 @@ div.word {
     0% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -142,10 +111,12 @@ div.word {
     height: 1.5rem;
     background: black;
     position: fixed;
-    top: 327px;
-    left: 274px;
-    transition: all 70ms linear;
-    animation: blink 1s infinite;
+    // top: 327px;
+    // left: 274px;
+    display: flex;
+    justify-content: flex-start;
+    transition: all 90ms linear;
+    animation: blink 1.2s infinite;
 }
 
 #game:focus #cursor {
@@ -160,3 +131,9 @@ div.word {
     display: flex;
     flex-direction: column;
 }
+
+#game.win #words {
+    opacity: .2;
+
+}
+

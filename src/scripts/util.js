@@ -31,3 +31,4 @@ export function displayWpm() {
     return (correctWords.length / timer) * 60000;
 }
 
+

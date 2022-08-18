@@ -1,0 +1,46 @@
+
+#links {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 3;
+    margin-top: 5%;
+}
+
+h1 {
+    font-family: 'DynaPuff', 'cursive';
+}
+
+h1 img {
+    width: 50px;
+}
+
+#game-container {
+    grid-column: 3;
+}
+
+#wrapper {
+    display: flex;
+    align-items: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div #icon {
+    width: 20px;
+    padding: 5px;
+}
+
+#header {
+    margin: 15px 6px 35px;
+}
+
+#info {
+    display: flex;
+    align-items: flex-start;
+    font-family: 'The Dinosaur', 'sans-serif';
+}
+
+#message {
+    font-family: 'Roboto Mono', 'monospace';
+    text-align: center;
+}

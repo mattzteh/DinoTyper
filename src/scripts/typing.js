@@ -1,13 +1,13 @@
-import {wordsDiv, game, resetTest, cursor, clock, human, dino} from './constants.js';
-import {addClass, removeClass, formatWord, randWord, displayWpm} from './util.js';
+import {wordsDiv, game, resetTest, cursor, clock, human, dino, message} from './constants.js';
+import {addClass, removeClass, formatWord, randWord} from './util.js';
 
 // variables--------------------------------------------------------------------
 
-const timer = 120 * 1000;
+export const timer = 120 * 1000;
 let gameStart = false;
 let runInterval;
-let dino_left = 270;
-let left = 350;
+let dino_left = 0;
+let left = 80;
 
 window.timer = null;
 window.gameStart = null;
@@ -21,11 +21,14 @@ export function newTest() {
     clock.innerText = 120;
     cursor.style.top = '327px';
     cursor.style.left = '274px';
+    cursor.style = 'display:flex; justify-content:flex-start';
     wordsDiv.style.marginTop = '0px';
-    dino.style.left = '270px';
-    human.style.left = '350px';
-    dino_left = 270;
-    left = 350;
+    dino.style = 'display:flex; justify-content:flex-start';
+    human.style = 'display:flex; justify-content:flex-start';
+    message.innerText = 'Type to Stay Alive!';
+
+    dino_left = 0;
+    left = 80;
     window.gameStart = null;
     window.timer = null;
 
@@ -51,17 +54,19 @@ export function newTest() {
 //------------------------------------------------------------------------------
 
 function gameOver() {
+    stopDino();
     clearInterval(window.timer);
     addClass(game, 'over');
-    document.getElementById('info').innerHTML = `WPM: ${displayWpm()}`;
+    // document.getElementById('info').innerHTML = `WPM: ${displayWpm()}`;
 }
+
+//------------------------------------------------------------------------------
 
 if (gameStart === false) {
     game.addEventListener('keyup', () => {
         if(!runInterval)runTimer();
     })
 }
-
 
 function runTimer() {
     runningDino();
@@ -70,7 +75,7 @@ function runTimer() {
 
 function runningDino() {
     if (!document.querySelector('#game.over')){
-        dino.style.left = dino_left + 'px'; 
+        dino.style.paddingLeft = dino_left + 'px'; 
         dino_left += 8;
     }
 }
@@ -79,6 +84,7 @@ function stopDino(){
     clearInterval(runInterval);
 }
 
+//------------------------------------------------------------------------------
 
 game.addEventListener('keyup', event => {
 
@@ -91,6 +97,7 @@ game.addEventListener('keyup', event => {
     const spacebar = key === ' ';
     const backspace = key === 'Backspace';
     const isFirstletter = currentLetter === currentWord.firstChild;
+    message.innerText = 'Run!';
 
     if (document.querySelector('#game.over')) {
         return;
@@ -160,7 +167,7 @@ game.addEventListener('keyup', event => {
         }
     }
 
-    if (currentWord.getBoundingClientRect().top > 360) {
+    if (currentWord.getBoundingClientRect().top > 380) {
         const margin = parseInt(wordsDiv.style.marginTop || '0px');
         wordsDiv.style.marginTop = (margin - 35) + 'px';
     }
@@ -176,12 +183,18 @@ game.addEventListener('keyup', event => {
         cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
     if (key == expected) {
-        human.style.left = left + 'px';
+        human.style.paddingLeft = left + 'px';
         left += 2;
     }
 
-    if (dino.style.left >= human.style.left) {
+    if ((left - dino_left) <= 50) {
         gameOver();
+        message.innerText = 'You got Eaten!'
+    }
+
+    if (human.style.paddingLeft == '900px') {
+        gameOver();
+        message.innerText = 'You Win!'
     }
 })
 
