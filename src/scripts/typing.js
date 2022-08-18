@@ -87,12 +87,10 @@ function stopDino(){
 //------------------------------------------------------------------------------
 
 game.addEventListener('keyup', event => {
-    
+
     if (!document.querySelector('#game.over')) {
         message.innerText = 'Run!';
     }
-
-    console.log(human.style.paddingLeft);
     gameStart = true;
     const key = event.key;
     const currentWord = document.querySelector('.word.current');
