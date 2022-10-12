@@ -1,4 +1,4 @@
-import {wordsDiv, game, resetTest, cursor, clock, human, dino, message} from './constants.js';
+import {wordsDiv, game, resetTest, cursor, clock, human, dino, message, desktop} from './constants.js';
 import {addClass, removeClass, formatWord, randWord} from './util.js';
 
 // variables--------------------------------------------------------------------
@@ -26,6 +26,7 @@ export function newTest() {
     dino.style = 'display:flex; justify-content:flex-start';
     human.style = 'display:flex; justify-content:flex-start';
     message.innerText = 'Type to Stay Alive!';
+    desktop.innerText = 'Please use Desktop';
 
     dino_left = 0;
     left = 80;
@@ -90,6 +91,7 @@ game.addEventListener('keydown', event => {
 
     if (!document.querySelector('#game.over')) {
         message.innerText = 'Run!';
+        desktop.innerText = '';
     }
     gameStart = true;
     const key = event.key;

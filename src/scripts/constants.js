@@ -10,4 +10,5 @@ export const clock = document.getElementById('info');
 export const dino = document.getElementById('dino-img');
 export const human = document.getElementById('human');
 export const message = document.getElementById('message');
+export const desktop = document.getElementById('desktop-msg');
 

@@ -1,3 +1,6 @@
+* {
+    font-family: 'Roboto Mono', 'monospace'
+}
 
 #links {
     display: flex;
@@ -16,6 +19,8 @@ h1 img {
 
 #game-container {
     grid-column: 3;
+    display: flex;
+    justify-items: center;
 }
 
 #wrapper {
@@ -41,6 +46,11 @@ div #icon {
 }
 
 #message {
-    font-family: 'Roboto Mono', 'monospace';
     text-align: center;
+}
+
+.desktop-msg {
+    display: flex;
+    justify-content: center;
+    font-weight: lighter;
 }

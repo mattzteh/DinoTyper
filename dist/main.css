@@ -41,6 +41,9 @@ hr {
 /*!*********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/gameheader.css ***!
   \*********************************************************************************************************/
+* {
+    font-family: 'Roboto Mono', 'monospace'
+}
 
 #links {
     display: flex;
@@ -59,6 +62,8 @@ h1 img {
 
 #game-container {
     grid-column: 3;
+    display: flex;
+    justify-items: center;
 }
 
 #wrapper {
@@ -84,9 +89,15 @@ div #icon {
 }
 
 #message {
-    font-family: 'Roboto Mono', 'monospace';
     text-align: center;
 }
+
+.desktop-msg {
+    display: flex;
+    justify-content: center;
+    font-weight: lighter;
+}
+
 /*!*****************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss (3) ***!
   \*****************************************************************************************************************************************/
